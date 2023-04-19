@@ -1,0 +1,31 @@
+<body>
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav>
+      <app-menu (selectedPage)="changePage($event)" [currentPage]="page" *ngIf="page"
+        (onCloseSidenav)="onClose($event, sidenav)" [loggedInUser]="loggedInUser"
+        (onLogout)="logout($event)"></app-menu>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar color="primary">
+        <div fxHide.gt-xs>
+          <button mat-icon-button (click)="onToogleSidenav(sidenav)">
+            <mat-icon>menu</mat-icon>
+          </button>
+        </div>
+        <div>JEWELRY STORE <mat-icon>card_giftcard</mat-icon></div>
+        <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
+          <ul fxLayout fxLayoutGap="10px" class="navigation-items">
+            <li *ngIf="(loggedInUser)"><a><mat-icon>shopping_bag</mat-icon></a></li>
+            <li><a routerLink="/main">Főoldal</a></li>
+            <li *ngIf="!(loggedInUser)"><a routerLink="/register">Regisztráció</a></li>
+            <li *ngIf="!(loggedInUser)"><a routerLink="/login">Bejelentkezés</a></li>
+            <li *ngIf="(loggedInUser)"><a routerLink="/main" (click)="logout()">Kijelentkezés</a></li>
+            <li><a routerLink="/shop">Ékszerek</a></li>
+            <li><a routerLink="/contact">Elérhetőség</a></li>
+          </ul>
+        </div>
+      </mat-toolbar>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</body>

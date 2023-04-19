@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "jewelrystorewebshop": {
+      "hosting": {
+        "jewelry-store": [
+          "jewelrystorewebshop"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "jewelrystorewebshop"
+  }
+}

@@ -1,0 +1,26 @@
+.div-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+}
+
+.register_component {
+    height: 100vh;
+}
+
+form {
+    display: inline-grid;
+    width: 50%;
+    align-self: center;
+}
+
+.subForm {
+    width: 100%;
+    display: inline-grid;
+}
+
+.buttons {
+    padding: 5px;
+}

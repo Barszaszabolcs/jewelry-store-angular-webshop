@@ -1,0 +1,58 @@
+<body>
+    <div class="div-card" *ngIf="imageInput">
+        <mat-card fxLayout fxLayoutGap="20px">
+            <span fxFlex="1 1 50%">
+                <mat-card-header>
+                    <mat-card-title>{{imageInput.name}}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <img class="jewelleryImage" [src]="loadedImage" />
+                    <div class="break"></div>
+                    <div>{{imageInput.description}}</div>
+                    <div class="break"></div>
+                    <div>
+                        <button *ngIf="(adminUser)" mat-raised-button color="primary" class="price" type="button" (click)="decreasePrice()">Csökkentés <mat-icon class="price_icon">remove</mat-icon></button>
+                        <span class="price">{{imageInput.price}}</span>
+                        <button *ngIf="(adminUser)" mat-raised-button color="primary" class="price" type="button" (click)="increasePrice()">Növelés <mat-icon class="price_icon">add</mat-icon></button> 
+                    </div>
+                    <div class="break"></div>
+                    <button mat-raised-button color="primary" type="button" class="cart" (click)="addToCart()">Kosárba<mat-icon>shopping_bag</mat-icon></button>
+                </mat-card-content>
+            </span>
+            <span fxFlex="1 1 50%">
+                <mat-card-actions id="addComment">
+                    <form [formGroup]="commentsForm" (ngSubmit)="addComment()">
+                        <div>
+                            <mat-form-field>
+                                <mat-label for="comment">Hozzászólás: </mat-label>
+                                <textarea matInput rows="10" cols="50" formControlName="comment"></textarea>
+                            </mat-form-field>
+                        </div>
+                        <div class="break"></div>
+                        <div>
+                            <button mat-raised-button color="primary" type="submit">Hozzáadás</button>
+                        </div>
+                    </form>
+                </mat-card-actions>
+            </span>
+        </mat-card>
+        <div class="break"></div>
+        <h2 *ngIf="comments.length" class="comments">Hozzászólások:</h2>
+        <div *ngIf="comments.length">
+            <table>
+                <tr>
+                    <th>Felhasználó</th>
+                    <th>Hozzászólás</th>
+                    <th>Dátum</th>
+                    <th></th>
+                </tr>
+                <tr *ngFor="let comment of comments; let i = index;" [ngClass]="i % 2 === 0 ? 'row-even' : 'row-odd'">
+                    <td id="comment_username">{{comment.username}}</td>
+                    <td id="comment_comment">{{comment.comment}}</td>
+                    <td>{{comment.date | dateFormat}}</td>
+                    <td id="comment_delete"><button mat-raised-button color="accent" (click)="deleteComment(comment.id, comment.username)">Törlés <mat-icon>delete</mat-icon></button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>

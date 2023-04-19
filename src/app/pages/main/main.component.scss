@@ -1,0 +1,23 @@
+div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+}
+
+.main_component {
+    height: 100vh;
+}
+
+p {
+    font-size: large;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+h1 {
+    margin-bottom: 10%;
+    font-size: xx-large;
+    font-weight: bold;
+}
