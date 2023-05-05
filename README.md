@@ -1,5 +1,9 @@
 # JewelryStore
 
+# Olvasd el!!!
+Ha serve-elni akarod a projektet, akkor át kell írnod egy-két dolgot egy fájl-ban, a kép megmutatja mit kell tenned:
+![image](serve-eleshez.png)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
 
 ## Development server
